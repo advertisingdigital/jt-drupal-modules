@@ -1,0 +1,33 @@
+<?php
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+//implement hook_menu
+function hello_world_menu() {
+  $items['hello'] = array(
+    'title' => t('Hello'),
+    'page callback' => 'hello_world_list',
+    'page arguments' => array(),
+    'access callback' => 'user_access',
+    'access arguments' => array('access content'),
+    'description' => 'Hello World: Hello List',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+function hello_world_list () {
+	$request = Request::createFromGlobals();
+	$hellos = array(
+		'English'=>'Hello',
+		'Spanish'=>'Hola',
+		'French' =>'Salut'
+	);
+	$hello_list = implode($hellos,'</li><li>');
+	$body = sprintf('<ul><li>%s</li></ul>', $hello_list);
+
+	//Return response w/ 200 status code 
+	return Response::create($body, 200)
+				->prepare($request)
+				->getContent();
+
+}

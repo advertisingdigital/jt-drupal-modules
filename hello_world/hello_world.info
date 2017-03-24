@@ -1,0 +1,5 @@
+name = Hello World
+description = Drupal 7 Hello World module using the symfony HTTPFoundation 2.8 component
+package = Hello World
+core = 7.x
+dependencies[] = composer_manager
