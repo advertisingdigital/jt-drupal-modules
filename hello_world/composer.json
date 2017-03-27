@@ -6,7 +6,7 @@
   "homepage": "https://github.com/jtarleton/jt-drupal-modules",
   "require": {
     "php": ">=5.3.0",
-    "drupal/composer_manager" : ">=1.8",
+    "drupal/composer_manager" : "dev-7.x-1.x",
     "symfony/http-foundation" : ">=2.8"
   }
 }
